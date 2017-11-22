@@ -1,0 +1,32 @@
+body{
+    background-color:gray;
+}
+
+.container{
+    
+}
+
+.catalog{
+    background-color: white;
+   
+}
+
+.product-container{
+    border-style: solid;
+    border-radius: 15%;
+}
+
+#sidebar{
+    background-color: white;
+    width: 100%;
+    left: 0;
+}
+
+#image-layer{
+    position: relative;
+    left: 0;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
