@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script src="index.js"></script>
     </head>
     <body>
         <div id="background-image">
@@ -15,7 +16,7 @@
                 
                 <h1><center>Find <strong style="color: orange">all</strong> the beer</center></h1>
                 <br>
-                <center><button class=" btn btn-warning">Start Shopping!</button></center>
+                <center><button id="shop-nav-btn" class=" btn btn-warning">Start Shopping!</a></button></center>
                 
             </div>
         </div>

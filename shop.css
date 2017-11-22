@@ -30,3 +30,9 @@ body{
     padding-right: 5%;
     padding-bottom: 5%;
 }
+
+#filter-table {
+    z-index: 99;
+    background-color: green;
+    padding-top: 2%;    
+}
