@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <div class="container">
+    
         <div id="adspace">
-        </div>
+    
     </div>
 </body>
 

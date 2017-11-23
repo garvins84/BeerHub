@@ -2,42 +2,31 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <link rel="stylesheet" type="text/css" href="navbar.css">
-    </head>
-    <body>
-                <div id="navbar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <row>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"><p>Home</p></div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">Shop</div>
-                        </row>
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                        <row>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6"></div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                <row>
-                                     <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4"><button id="myBtn">Login</button></div>
-                                    <div class="col-xs-2 col-sm-4 col-md-4 col-lg-4">Register</div>
-                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
-                                    <div class="col-xs-2 col-sm-1 col-md-1 col-lg-1"></div>
-                                    <div class="col-xs-3 col-sm-1 col-md-1 col-lg-1"></div>
-                                </row>
-                            </div>
-                        </row>    
-                    </div>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="navbar.css">
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-6">
+                    <div style="float: left; padding-right: 5%;">Home</div>
+                    <div style="float: left">Shop</div>
+                </div>
+                <div class="col-md-6 col-lg-6">
+                    <div style="float: right">Login</div>
+                    <div style="display: inline-block; position: relative;">Register</div>
                 </div>
             </div>
         </div>
-          <style>
+    </div>
+    <style>
   .modal-header, h4, .close {
       background-color: #5cb85c;
       color:white !important;
@@ -47,7 +36,7 @@
   .modal-footer {
       background-color: #f9f9f9;
   }
-  </style>
+    </style>
 
 
 
