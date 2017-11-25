@@ -13,7 +13,7 @@ body{
 
 .catalog{
     background-color: white;
-    width: 80%;
+    width: 80.1%;
     height: 100%;
     overflow: auto;
    
@@ -55,7 +55,7 @@ body{
 }
 
 #left-item{
-    width: 20%;
+    width: 19.9%;
     background-color: white;
     vertical-align: top;
     overflow: auto;

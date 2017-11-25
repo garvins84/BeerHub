@@ -16,7 +16,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        
             <div id="left-item" style="float: left">
                 <table class="table table-striped">
                     <th> Filter By </th>
@@ -107,7 +107,7 @@
                 ?>
                 </div>
             </div>
-        </div>
+        
 </body>
 
 </html>
