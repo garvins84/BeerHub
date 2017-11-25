@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="shop.css">
+    <script src="shop.js"></script>
 </head>
-
 <body>
     <div class="container">
         <div class="row">
@@ -22,7 +22,25 @@
                     <th> Filter By </th>
                     <tr>
                         <td>
-                            <center>Brand</center>
+                            <div style="overflow-y: hidden; overflow-x: hidden;">
+                                <ul class="nav nav-list">
+                                    <li><label class="tree-toggler nav-header">Brand</label>
+                                        <ul class="nav nav-list tree">
+                                        <?php 
+                                        $getBeer = mysqli_query($connection, "SELECT * FROM beer_brand_list");
+                                        while($beerRow = mysqli_fetch_assoc($getBeer)){
+                                            $beerRows[] = $beerRow;
+                                        }
+                                        foreach ($beerRows as $beerRowItem){
+                                         echo "<li><input type='checkbox'>";
+                                         echo $beerRowItem['BeerBrand'];
+                                         echo "</input></li>";
+                                        }	
+                                        ?>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                     <tr>
@@ -46,9 +64,9 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-            <div class="catalog" style="float: left">
-                <?php 
+                </div>
+                <div class="catalog" style="float: left">
+                    <?php 
                     $result = mysqli_query($connection, "SELECT * FROM inventory LEFT JOIN inventory_images ON (inventory.id = inventory_images.ItemId)");
                     while($row = mysqli_fetch_assoc($result)){
                         $rows[] = $row;
@@ -87,9 +105,9 @@
                     echo "</center>";
                     echo "</div>";
                 ?>
+                </div>
             </div>
         </div>
-    </div>
 </body>
 
 </html>

@@ -11,9 +11,22 @@
 </head>
 
 <body>
-    
+    <div class="container">
         <div id="adspace">
-    
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" data-interval="5000">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img class="d-block img-fluid" src="carousel1.jpg" alt="First slide">
+                    </div>
+                    <div class="item">
+                        <img class="d-block img-fluid" src="carousel2.png" alt="Second slide">
+                    </div>
+                    <div class="item">
+                        <img class="d-block img-fluid" src="carousel3.jpg" alt="Third slide">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
