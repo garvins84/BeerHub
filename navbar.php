@@ -1,4 +1,8 @@
-<?php include "connection.php"; ?>
+<?php error_reporting(E_ALL);
+ini_set('display_errors', 1); ?>
+<?php include "connection.php"; 
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,6 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <link rel="stylesheet" type="text/css" href="navbar.css">
+    <script src="navbar.js"></script>
 </head>
 
 <body>
@@ -20,7 +25,7 @@
                     <div style="float: left">Shop</div>
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <div style="float: right">Login</div>
+                    <div style="float: right"><button id="myBtn">Login</button></div>
                     <div style="display: inline-block; position: relative;">Register</div>
                 </div>
             </div>
@@ -53,10 +58,10 @@
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
+          <form id="myform" role="form">
             <div class="form-group">
-              <label for="usrname" name="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
+              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
+              <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="psw" name="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
@@ -65,11 +70,11 @@
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off" name="submit" value="submit"></span> Login</button>
+              <button id="login-btn" type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off" name="submit" value="submit"></span> Login</button>
           </form>
         </div>
         <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+          <button type="submit" class="btn btn-danger btn-default pull-left"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
           <p>Not a member? <a href="#">Sign Up</a></p>
           <p>Forgot <a href="#">Password?</a></p>
         </div>
@@ -87,49 +92,52 @@ $(document).ready(function(){
 });
 </script>
 
-        
-        <?php
+<?php
 if(!isset($_SESSION['usrname']))
 {
-if(isset($_POST['submit']))
-{
- $name=$_POST['usrname'];
-    echo "<script>alert('". $name . "')</script>";
- $pwd=$_POST['psw'];
- if($name!=''&&$pwd!='')
- {
-   $query=mysqli_query($connection, "select * from users where username='".$name."' and password='".$pwd."'") or die(mysqli_error());
-   $res=mysqli_fetch_row($query);
-     echo $res;
-   if($res)
-   {
-	   //$row = mysql_fetch_assoc($res);
-    $_SESSION['name']=$name;
-	$_SESSION['uid'] = $res[0];
+  if(isset($_POST['submit']))
+  {
+    $name=$_POST['usrname'];
+    $pwd=$_POST['psw'];
+    if($name!=''&&$pwd!='')
+    {
+      $query=mysqli_query($connection, "select * from users where username='".$name."' and password='".$pwd."'") or die(mysqli_error());
+      $res=mysqli_fetch_row($query);
+      if($res)
+      {
+	      $row = mysql_fetch_assoc($res);
+        $_SESSION['name']=$name;
+        $_SESSION['uid'] = $row[0];
 	  
-    if(isset($_SESSION['url'])) 
-   		$url = $_SESSION['url']; // holds url for last page visited.
-	else 
-   		$url = "index.php"; 
+        if(isset($_SESSION['url'])) 
+   		    $url = $_SESSION['url']; // holds url for last page visited.
+	      else 
+   		    $url = "index.php"; 
 
-	header("Location:$url"); 
-   }
-   else
-   {
-    echo'You entered username or password is incorrect';
-   }
- }
- else
- {
-  echo'Enter both username and password';
- }
+	      header("Location:$url"); 
+      }
+      else
+      {
+        echo'You entered username or password is incorrect';
+      }
+    }
+    else
+    {
+      echo'Enter both username and password';
+    }
+  }
 }
+else
+{
+	header("Location:index.php");
 }
-			else
-			{
-				header("Location:index.php");
-			}
 ?>
-        
+<?php
+    echo "<div class = test>";
+    echo $_REQUEST['uid']; 
+    echo $_REQUEST['usrname'];
+    echo "</div>";
+    ?> 
+
     </body>
 </html>
