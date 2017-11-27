@@ -25,9 +25,23 @@ session_start();
                     <div style="float: left">Shop</div>
                 </div>
                 <div class="col-md-6 col-lg-6">
-                    <div style="float: right"><button id="myBtn">Login</button></div>
-                    <div style="display: inline-block; position: relative;">Register</div>
-                </div>
+                  <?php 
+                  if(isset($_SESSION['name']))
+                  {
+                    echo "<div style='float: right'>";
+                    echo "welcome, " . $_SESSION['name'];
+                    echo "</div>";
+                    echo "<div style='display: inline-block; position: relative;'><a href='cart.php'>Cart</a></div>";
+                  }
+                    else
+                    {
+                    echo "<div style='float: right'><button id='myBtn'>";
+                    echo "login";
+                    echo "</button></div>";
+                    echo "<div style='display: inline-block; position: relative;'>Register</div>"; 
+                    }
+                    ?>
+                    </div>
             </div>
         </div>
     </div>
@@ -58,19 +72,19 @@ session_start();
           <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
         </div>
         <div class="modal-body" style="padding:40px 50px;">
-          <form id="myform" role="form">
+          <form id="myform" role="form" method="post">
             <div class="form-group">
               <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
               <input type="text" class="form-control" id="usrname" name="usrname" placeholder="Enter email">
             </div>
             <div class="form-group">
               <label for="psw" name="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
+              <input type="text" class="form-control" id="psw" name="psw" placeholder="Enter password">
             </div>
             <div class="checkbox">
               <label><input type="checkbox" value="" checked>Remember me</label>
             </div>
-              <button id="login-btn" type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off" name="submit" value="submit"></span> Login</button>
+              <button id="login-btn" type="submit" name="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off" value="submit"></span> Login</button>
           </form>
         </div>
         <div class="modal-footer">
@@ -95,6 +109,7 @@ $(document).ready(function(){
 <?php
 if(!isset($_SESSION['usrname']))
 {
+  $_SESSION['test5'] = "test5";
   if(isset($_POST['submit']))
   {
     $name=$_POST['usrname'];
@@ -105,16 +120,10 @@ if(!isset($_SESSION['usrname']))
       $res=mysqli_fetch_row($query);
       if($res)
       {
-	      $row = mysql_fetch_assoc($res);
+	      //$row = mysql_fetch_assoc($res);
         $_SESSION['name']=$name;
-        $_SESSION['uid'] = $row[0];
-	  
-        if(isset($_SESSION['url'])) 
-   		    $url = $_SESSION['url']; // holds url for last page visited.
-	      else 
-   		    $url = "index.php"; 
-
-	      header("Location:$url"); 
+        $_SESSION['uid'] = $res[0];
+        $_SESSION['test'] = "test";
       }
       else
       {
@@ -129,15 +138,13 @@ if(!isset($_SESSION['usrname']))
 }
 else
 {
-	header("Location:index.php");
 }
 ?>
 <?php
-    echo "<div class = test>";
-    echo $_REQUEST['uid']; 
-    echo $_REQUEST['usrname'];
-    echo "</div>";
-    ?> 
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
+?> 
 
     </body>
 </html>

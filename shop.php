@@ -72,6 +72,7 @@
                         $rows[] = $row;
                     }
                     $i = 0;
+                    $itemnumber= 1;
                     echo "<div class='container-fluid'>";
                     echo "<center>";
                     echo "<br>";
@@ -85,10 +86,10 @@
                         echo "<br>";
                         echo "<div class='row'>";
                         echo "<div class='col-md-5 col-lg-5' style='padding-bottom: 5%'>";
-                        echo "<center><button>view</button></center>";
+                        echo "<center><button id=view-item'" . $itemnumber . "'>view</button></center>";
                         echo "</div>";
                         echo "<div class='col-md-7 col-lg-7'>";
-                        echo "<center><button>add to cart</button></center>";
+                        echo "<center><button id=add-item-'" . $itemnumber . "' count='" . $itemnumber . "'>add to cart</button></center>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
@@ -101,6 +102,7 @@
                             $i = 0;
                         }
                         $i = $i + 1;
+                        $itemnumber ++;
                     }
                     echo "</center>";
                     echo "</div>";
