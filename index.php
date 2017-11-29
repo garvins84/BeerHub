@@ -11,7 +11,7 @@
         <script src="index.js"></script>
     </head>
     <body>
-        <div id="background-image">
+        <div id="background-image" style="z-index:9999">
             <div class="center-text">
                 
                 <h1><center>Find <strong style="color: orange">all</strong> the beer</center></h1>
