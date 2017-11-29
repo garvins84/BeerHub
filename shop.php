@@ -89,7 +89,7 @@
                         echo "<center><button id=view-item'" . $itemnumber . "'>view</button></center>";
                         echo "</div>";
                         echo "<div class='col-md-7 col-lg-7'>";
-                        echo "<center><button id=add-item-'" . $itemnumber . "' count='" . $itemnumber . "'>add to cart</button></center>";
+                        echo "<center><button class=add-item count='" . $itemnumber . "'>add to cart</button></center>";
                         echo "</div>";
                         echo "</div>";
                         echo "</div>";
@@ -109,6 +109,24 @@
                 ?>
                 </div>
             </div>
+
+            <script>
+            $(document).ready(function(){
+                $('.catalog').on('click', 'button.add-item', function(e){
+                    $.ajax({
+                        type: "POST",
+                        url: "add-item.php",
+                        data: {
+                            itemId: $(this).attr('count'),
+                            userId: <?php echo $_SESSION['uid']; ?>
+                        },
+                        success: function(data){
+                        alert("Item added to cart!");   
+                        },
+                    });
+                })
+            });
+            </script>
         
 </body>
 
