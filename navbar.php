@@ -22,7 +22,7 @@ session_start();
             <div class="row">
                 <div class="col-md-6 col-lg-6">
                     <div style="float: left; padding-right: 5%;">Home</div>
-                    <div style="float: left">Shop</div>
+                    <div style="float: left"><a href="shop.php">Shop</a></div>
                 </div>
                 <div class="col-md-6 col-lg-6">
                   <?php 
@@ -109,7 +109,6 @@ $(document).ready(function(){
 <?php
 if(!isset($_SESSION['usrname']))
 {
-  $_SESSION['test5'] = "test5";
   if(isset($_POST['submit']))
   {
     $name=$_POST['usrname'];
@@ -140,11 +139,6 @@ else
 {
 }
 ?>
-<?php
-echo '<pre>';
-var_dump($_SESSION);
-echo '</pre>';
-?> 
 
     </body>
 </html>
